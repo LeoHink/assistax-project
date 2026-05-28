@@ -1,80 +1,50 @@
-# Academic Project Page Template
+# Assistax — Project Page
 
-> **Update (September 2025)**: This template has been modernized with better design, SEO, and mobile support. For the original version, see the [original-version branch](https://github.com/eliahuhorwitz/Academic-project-page-template/tree/original-version).
+Project page for **Assistax: A Multi-Agent Hardware-Accelerated Reinforcement Learning Benchmark for Assistive Robotics** (Hinckeldey et al., RLC 2026).
 
-A clean, responsive template for academic project pages.
+This is a static site (no build step). To preview locally:
 
+```bash
+python3 -m http.server 8000
+# then visit http://localhost:8000
+```
 
-Example project pages built using this template are:
-- https://horwitz.ai/probex
-- https://vision.huji.ac.il/probegen
-- https://horwitz.ai/mother
-- https://horwitz.ai/spectral_detuning
-- https://vision.huji.ac.il/ladeda
-- https://vision.huji.ac.il/dsire
-- https://horwitz.ai/podd
-- https://dreamix-video-editing.github.io
-- https://horwitz.ai/conffusion
-- https://horwitz.ai/3d_ads/
-- https://vision.huji.ac.il/ssrl_ad
-- https://vision.huji.ac.il/deepsim
+## Open placeholders to fill before deploy
 
+- `arxiv.org/abs/XXXX.XXXXX` — replace with the real arXiv ID in `index.html` and in the JSON-LD block.
+- `https://YOUR_DOMAIN.com/...` — replace with the deployment URL in the Open Graph / Twitter / JSON-LD tags.
+- Author `href="#"` links — point each author span to their personal page.
+- `https://huggingface.co/assistive-autonomy` — confirm the Hugging Face org/collection URL.
+- `static/images/favicon.ico` — replace with the Assistax favicon.
+- `static/images/social_preview.png` — add a 1200×630 social preview image.
 
+## Editing content
 
-## Start using the template
-To start using the template click on `Use this Template`.
+- `index.html` — landing page (hero, abstract, key results, task carousel, method, BibTeX).
+- `docs.html` — stub linking to the GitHub README until full docs land.
+- `static/css/index.css` — site styles. Key Results card styles live near the top.
+- `static/js/index.js` — Bulma carousel init, BibTeX copy button, scroll-to-top, video-on-visible autoplay.
 
-The template uses html for controlling the content and css for controlling the style. 
-To edit the websites contents edit the `index.html` file. It contains different HTML "building blocks", use whichever ones you need and comment out the rest.  
+## Asset pipeline
 
-**IMPORTANT!** Make sure to replace the `favicon.ico` under `static/images/` with one of your own, otherwise your favicon is going to be a dreambooth image of me.
+Paper figures and policy videos are sourced from:
 
-## What's New
+- LaTeX figures: `/home/leo/Documents/1_PhD/1-paper-writing/assistax_rlc_2026/figures/`
+- Policy rollouts: `/home/leo/Videos/assistax_policy_videos/`
 
-- Modern, clean design with better mobile support
-- Improved SEO with proper meta tags and structured data
-- Performance improvements (lazy loading, optimized assets)
-- More Works dropdown
-- Copy button for BibTeX citations
-- Better accessibility
+To regenerate:
 
-## Components
+```bash
+# PNGs from paper PDFs
+pdftoppm -png -r 200 figures/sps_scaling.pdf static/images/speedup_chart
+pdftoppm -png -r 200 figures/aht_ppo_pref_norm_minmax.pdf static/images/coordination_gap
+pdftoppm -png -r 200 figures/assistax_training_loop.pdf static/images/training_loop
+# (rename trailing -1.png suffix afterwards)
 
-- Teaser video
-- Image carousel
-- YouTube video embedding
-- Video carousel
-- PDF poster viewer
-- BibTeX citation
+# Re-encode task videos for web
+ffmpeg -i in.mp4 -vcodec libx264 -crf 28 -preset fast -vf "scale=1280:-2" -an -movflags +faststart out.mp4
+```
 
-## Customization
+## Template attribution
 
-The HTML file has TODO comments showing what to replace:
-
-- Paper title, authors, institution, conference
-- Links (arXiv, GitHub, etc.)
-- Abstract and descriptions  
-- Videos, images, and PDFs
-- Related works in the dropdown
-- Meta tags for SEO and social sharing
-
-### Meta Tags
-The template includes meta tags for better search engine visibility and social media sharing. These appear in the `<head>` section and help with:
-- Google Scholar indexing
-- Social media previews (Twitter, Facebook, LinkedIn)
-- Search engine optimization
-
-Create a 1200x630px social preview image at `static/images/social_preview.png`.
-
-## Tips
-
-- Compress images with [TinyPNG](https://tinypng.com)
-- Use YouTube for large videos (>10MB)  
-- Replace the favicon in `static/images/`
-- Works with GitHub Pages
-
-## Acknowledgments
-Parts of this project page were adopted from the [Nerfies](https://nerfies.github.io/) page.
-
-## Website License
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+This page is built on the [Academic Project Page Template](https://github.com/eliahuhorwitz/Academic-project-page-template), adapted from the [Nerfies](https://nerfies.github.io/) project page. Licensed under [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/).
