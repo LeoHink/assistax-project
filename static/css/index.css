@@ -366,23 +366,36 @@ body {
   box-shadow: var(--shadow-md);
 }
 
-/* MARL baseline figure (legend stacked on top of aggregate plot) */
-.baseline-figure {
+/* MARL baseline grid (legend on top, 3x2 per-task panels below) */
+.baseline-grid {
   text-align: center;
   margin: 0 auto 2rem;
-  max-width: 720px;
+  max-width: 1100px;
 }
 
-.baseline-figure img {
+.baseline-grid > img.legend {
+  display: block;
+  margin: 0 auto 1rem;
+  max-width: 80%;
+  height: auto;
+}
+
+.baseline-panels .column {
+  text-align: center;
+}
+
+.baseline-panels img {
   max-width: 100%;
   height: auto;
   display: block;
   margin: 0 auto;
 }
 
-.baseline-figure .legend {
-  max-width: 80%;
-  margin-bottom: 0.5rem;
+.baseline-panels .panel-caption {
+  margin-top: 0.4rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-weight: 500;
 }
 
 /* Pagination and Misc Improvements */

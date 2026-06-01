@@ -265,36 +265,8 @@
   <!-- End Key Results -->
 
 
-  <!-- Tuned MARL Baselines -->
-  <section class="section hero is-light" id="baselines">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3 has-text-centered">Tuned MARL Baselines</h2>
-          <figure class="baseline-figure">
-            <img class="legend" src="static/images/marl_legend.png" alt="Legend for MARL baseline learning curves">
-            <img src="static/images/marl_aggregate.png" alt="Min-max normalised mean test returns aggregated across all five Assistax tasks for IPPO, MAPPO and MASAC baselines">
-            <figcaption class="subtitle is-6 has-text-centered" style="color: var(--text-secondary); margin-top: 0.75rem;">
-              Min-max normalised mean test returns aggregated across all five tasks.
-            </figcaption>
-          </figure>
-          <div class="content has-text-justified">
-            <p>
-              We ship tuned multi-agent baselines &mdash; <strong>IPPO</strong>, <strong>MAPPO</strong>, and <strong>MASAC</strong>, in feed-forward and recurrent variants &mdash; co-trained on every task. Across <strong>168 hyperparameter combinations</strong> per algorithm&ndash;task pair (16 seeds, 64 evaluation episodes), the feed-forward IPPO and MAPPO variants consistently come out on top.
-            </p>
-            <p>
-              Despite the partial observability of the environments, recurrent architectures offer no benefit &mdash; and actively hurt IPPO. These baselines are released alongside the code as strong reference implementations for AHT research.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End Tuned MARL Baselines -->
-
-
   <!-- Tasks video carousel -->
-  <section class="hero is-small">
+  <section class="hero is-small is-light">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <h2 class="title is-3 has-text-centered">Five Assistive Tasks</h2>
@@ -336,12 +308,65 @@
   <!-- End video carousel -->
 
 
+  <!-- Tuned MARL Baselines -->
+  <section class="section" id="baselines">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Tuned MARL Baselines</h2>
+          <figure class="baseline-grid">
+            <img class="legend" src="static/images/marl_legend.png" alt="Legend for MARL baseline learning curves">
+            <div class="columns is-multiline is-mobile-stacked baseline-panels">
+              <div class="column is-one-third-tablet">
+                <img src="static/images/marl_scratch.png" alt="Learning curves for the Scratch task">
+                <p class="panel-caption"><em>Scratch</em></p>
+              </div>
+              <div class="column is-one-third-tablet">
+                <img src="static/images/marl_bed_bathing.png" alt="Learning curves for the Bed Bath task">
+                <p class="panel-caption"><em>Bed Bath</em></p>
+              </div>
+              <div class="column is-one-third-tablet">
+                <img src="static/images/marl_arm_assist.png" alt="Learning curves for the Arm Assist task">
+                <p class="panel-caption"><em>Arm Assist</em></p>
+              </div>
+              <div class="column is-one-third-tablet">
+                <img src="static/images/marl_feeding.png" alt="Learning curves for the Feeding task">
+                <p class="panel-caption"><em>Feeding</em></p>
+              </div>
+              <div class="column is-one-third-tablet">
+                <img src="static/images/marl_tooth_brushing.png" alt="Learning curves for the Tooth Brushing task">
+                <p class="panel-caption"><em>Tooth Brushing</em></p>
+              </div>
+              <div class="column is-one-third-tablet">
+                <img src="static/images/marl_aggregate.png" alt="Min-max normalised mean test returns aggregated across all five tasks">
+                <p class="panel-caption"><em>Aggregate</em> (min-max normalised)</p>
+              </div>
+            </div>
+            <figcaption class="subtitle is-6 has-text-centered" style="color: var(--text-secondary); margin-top: 0.75rem;">
+              Mean test returns across 16 seeds and 64 evaluation episodes &plusmn; 95% stratified-bootstrap CIs.
+            </figcaption>
+          </figure>
+          <div class="content has-text-justified">
+            <p>
+              We ship tuned multi-agent baselines &mdash; <strong>IPPO</strong>, <strong>MAPPO</strong>, and <strong>MASAC</strong>, in feed-forward and recurrent variants &mdash; co-trained on every task. Across <strong>168 hyperparameter combinations</strong> per algorithm&ndash;task pair (16 seeds, 64 evaluation episodes), the feed-forward IPPO and MAPPO variants consistently come out on top.
+            </p>
+            <p>
+              Despite the partial observability of the environments, recurrent architectures offer no benefit &mdash; and actively hurt IPPO. These baselines are released alongside the code as strong reference implementations for AHT research.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Tuned MARL Baselines -->
+
+
   <!-- Method at a glance -->
   <section class="section hero is-light">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3 has-text-centered">Method at a Glance</h2>
+          <h2 class="title is-3 has-text-centered">Assistax at a Glance</h2>
           <figure class="method-figure">
             <img src="static/images/training_loop.png" alt="Assistax training loop: MuJoCo MJX simulation, JAX-vectorised rollouts, MARL update, preference-conditioned rewards" loading="lazy">
           </figure>
@@ -349,8 +374,18 @@
             <p>
               Assistax runs simulation, environment logic, and the RL loop entirely on a single GPU. Tasks are built in MuJoCo&nbsp;MJX and vectorised across thousands of parallel environments via JAX&nbsp;<code>vmap</code>, so policy updates, environment seeds, and hyperparameter sweeps all execute in lockstep without leaving the device. Each task pairs a Franka arm with an actively-controlled humanoid; rewards combine task success with <em>preference rewards</em> encoding how a partner wants the task performed (e.g.&nbsp;contact force, speed, contact region).
             </p>
+          </div>
+
+          <h3 class="title is-4 has-text-centered" style="margin-top: 2.5rem;">Ad-Hoc Teamwork Pipeline</h3>
+          <figure class="method-figure">
+            <img src="static/images/aht_pipeline.png" alt="Ad-Hoc Teamwork pipeline: MARL co-training produces a diverse population of pre-trained humanoid partners; the robot is then trained on a small subset and evaluated against held-out partners, revealing a coordination gap" loading="lazy">
+          </figure>
+          <div class="content has-text-justified">
             <p>
-              On top of this, we ship an Ad-Hoc Teamwork pipeline: pre-train a diverse population of humanoid partners (630 per task) with MARL, withhold a subset for evaluation, and measure how well a robot policy generalises to partners with novel preference combinations. Reactive, pre-trained humanoid policies are released on Hugging Face so AHT researchers can iterate without retraining partners.
+              The same loop is then used to study a harder question: <em>can a robot trained with a handful of partners cooperate with humans it has never seen?</em> We pre-train a diverse population of <strong>630 humanoid partners per task</strong> with MARL, varying them along two axes &mdash; <strong>610 preference combinations</strong> (how the task should feel: force, speed, contact region) and <strong>7 disability combinations</strong> (which joints are usable). The population is then split into a small <strong>training set of 5 partners</strong> and a held-out <strong>test set of 625 partners</strong> with novel preference combinations.
+            </p>
+            <p>
+              A robot policy is trained against only the training partners and evaluated against the held-out test partners &mdash; the difference between the two is the coordination gap surfaced in the Key Results. All reactive, pre-trained humanoid policies are released on <strong>Hugging Face</strong>, so AHT researchers can drop them into their own pipelines without paying the cost of pre-training a partner population from scratch.
             </p>
           </div>
         </div>
