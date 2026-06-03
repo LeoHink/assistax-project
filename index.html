@@ -222,10 +222,10 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Real-world assistive tasks &mdash; home assistance, caretaking, daily-living support &mdash; are inherently multi-agent, but most RL simulators treat the robot as an isolated agent or run too slowly to support modern RL pipelines. <strong>Assistax</strong> closes this gap with a high-throughput, GPU-accelerated suite of assistive robotics tasks built on JAX and MuJoCo&nbsp;MJX, and pairs each robot with an active humanoid partner that can be co-trained via multi-agent RL.
+              Real-world assistive tasks &mdash; home assistance, caretaking, daily-living support &mdash; are inherently multi-agent, yet most existing RL and robot learning simulators consider single-agent problems. This gap is compounded by two further limitations: common RL environments are too simple to capture the complexity of real robotics domains, while most robotics simulations have throughput too low for RL training. As a result, environments that combine robotics fidelity, training efficiency, <em>and</em> multi-agent support remain rare. <strong>Assistax</strong> closes this gap with a high-throughput, GPU-accelerated suite of assistive robotics tasks built on JAX and MuJoCo&nbsp;MJX, and pairs each robot with an active humanoid partner that can be co-trained via multi-agent RL.
             </p>
             <p>
-              On top of the MARL benchmark we formulate human&ndash;robot interaction as an <strong>Ad-Hoc Teamwork (AHT)</strong> problem: the robot must generalise to unseen humans with varying disabilities and preferences. We provide tuned MARL baselines, an AHT pipeline with a diverse population of pre-trained humanoid partners (released on Hugging Face), and an evaluation protocol that reveals a clear coordination gap when current RL algorithms meet unseen partner preferences.
+              On top of the MARL benchmark we formulate assistive tasks as an <strong>Ad-Hoc Teamwork (AHT)</strong> problem: the robot must generalise to unseen humans with varying disabilities and preferences. We provide tuned MARL baselines, an AHT pipeline with a diverse population of pre-trained humanoid partners (released on Hugging Face), and an evaluation protocol that reveals a clear coordination gap when current RL algorithms meet unseen partner agents.
             </p>
           </div>
         </div>
@@ -254,9 +254,9 @@
             <div class="result-metric">The Coordination Gap</div>
             <h3 class="result-headline">RL agents fail on unseen partners</h3>
             <p class="result-body">
-              Train a robot with 5 humanoid partners, test it against 625 unseen partners with novel preference combinations, and performance drops sharply &mdash; a gap driven almost entirely by preference generalisation.
+              Train a robot with 5 humanoid partners, test it against 625 unseen partners with novel preference combinations, and performance drops. 
             </p>
-            <img src="static/images/coordination_gap.png" alt="PPO AHT preference-reward gap between training and held-out partners" loading="lazy">
+            <img src="static/images/coordination_gap.png" alt="PPO AHT coordination gap between training and held-out partners" loading="lazy">
           </div>
         </div>
       </div>
@@ -299,7 +299,7 @@
             <video poster="" id="video5" muted loop playsinline preload="metadata">
               <source src="static/videos/task_arm_assist.mp4" type="video/mp4">
             </video>
-            <h2 class="subtitle has-text-centered"><strong>Arm Assist</strong> &mdash; the robot helps the humanoid lift and reach with its arm.</h2>
+            <h2 class="subtitle has-text-centered"><strong>Arm Assist</strong> &mdash; the robot helps the humanoid lift lift it's arm back onto the bed.</h2>
           </div>
         </div>
       </div>
@@ -348,11 +348,11 @@
           </figure>
           <div class="content has-text-justified">
             <p>
-              We ship tuned multi-agent baselines &mdash; <strong>IPPO</strong>, <strong>MAPPO</strong>, and <strong>MASAC</strong>, in feed-forward and recurrent variants &mdash; co-trained on every task. Across <strong>168 hyperparameter combinations</strong> per algorithm&ndash;task pair (16 seeds, 64 evaluation episodes), the feed-forward IPPO and MAPPO variants consistently come out on top.
+              We provide well tuned multi-agent RL baselines &mdash; <strong>IPPO</strong>, <strong>MAPPO</strong>, and <strong>MASAC</strong>, in feed-forward and recurrent variants &mdash; co-trained on every task. All baselines were tuned across <strong>168 hyperparameter combinations</strong> per algorithm&ndash;task pair (16 seeds, 64 evaluation episodes), the feed-forward IPPO and MAPPO variants consistently come out on top.
             </p>
-            <p>
+            <!-- <p>
               Despite the partial observability of the environments, recurrent architectures offer no benefit &mdash; and actively hurt IPPO. These baselines are released alongside the code as strong reference implementations for AHT research.
-            </p>
+            </p> -->
           </div>
         </div>
       </div>
@@ -372,7 +372,7 @@
           </figure>
           <div class="content has-text-justified">
             <p>
-              Assistax runs simulation, environment logic, and the RL loop entirely on a single GPU. Tasks are built in MuJoCo&nbsp;MJX and vectorised across thousands of parallel environments via JAX&nbsp;<code>vmap</code>, so policy updates, environment seeds, and hyperparameter sweeps all execute in lockstep without leaving the device. Each task pairs a Franka arm with an actively-controlled humanoid; rewards combine task success with <em>preference rewards</em> encoding how a partner wants the task performed (e.g.&nbsp;contact force, speed, contact region).
+              Assistax runs simulation, environment logic, and the RL loop entirely on GPU. Tasks are built in MuJoCo&nbsp;MJX and vectorised across thousands of parallel environments via JAX&nbsp;<code>vmap</code>. We also provide further vectorization allowing practitioners to scale their experiments across different seeds or across multiple partner agents for ad-hoc teamwork. Each task pairs a Franka arm with an actively-controlled humanoid; rewards combine task success with <em>preference rewards</em> encoding how a partner wants the task performed (e.g.&nbsp;contact force, speed, frequency of contact).
             </p>
           </div>
 
@@ -382,10 +382,10 @@
           </figure>
           <div class="content has-text-justified">
             <p>
-              The same loop is then used to study a harder question: <em>can a robot trained with a handful of partners cooperate with humans it has never seen?</em> We pre-train a diverse population of <strong>630 humanoid partners per task</strong> with MARL, varying them along two axes &mdash; <strong>610 preference combinations</strong> (how the task should feel: force, speed, contact region) and <strong>7 disability combinations</strong> (which joints are usable). The population is then split into a small <strong>training set of 5 partners</strong> and a held-out <strong>test set of 625 partners</strong> with novel preference combinations.
+              The same loop is then used to study a harder question: <em>can a robot trained with a handful of partners cooperate with humans it has never seen?</em> We pre-train a diverse population of <strong>630 humanoid partners per task</strong> with MARL, varying them along two axes &mdash; <strong>610 preference combinations</strong> and <strong>7 disability combinations</strong> (which joints are usable). The population is then split into a small <strong>training set of 5 partners</strong> and a held-out <strong>test set of 625 partners</strong> with novel preference combinations.
             </p>
             <p>
-              A robot policy is trained against only the training partners and evaluated against the held-out test partners &mdash; the difference between the two is the coordination gap surfaced in the Key Results. All reactive, pre-trained humanoid policies are released on <strong>Hugging Face</strong>, so AHT researchers can drop them into their own pipelines without paying the cost of pre-training a partner population from scratch.
+              A robot policy is trained against only the training partners and evaluated against the held-out test partners. All reactive, pre-trained humanoid policies are released on <strong>Hugging Face</strong>, so AHT researchers can drop them into their own pipelines without paying the cost of pre-training a partner population from scratch.
             </p>
           </div>
         </div>
