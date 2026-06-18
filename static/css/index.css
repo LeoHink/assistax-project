@@ -322,10 +322,7 @@ body {
   font-size: 3.25rem;
   font-weight: 800;
   line-height: 1;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--primary-color);
   margin-bottom: 0.5rem;
 }
 
@@ -432,10 +429,17 @@ body {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background: var(--gradient-accent);
-  border-radius: 2px;
+  width: 64px;
+  height: 8px;
+  background-repeat: no-repeat;
+  background-image:
+    radial-gradient(circle closest-side, var(--primary-color) 98%, transparent 100%),
+    radial-gradient(circle closest-side, var(--primary-color) 98%, transparent 100%),
+    radial-gradient(circle closest-side, var(--primary-color) 98%, transparent 100%),
+    radial-gradient(circle closest-side, var(--primary-color) 98%, transparent 100%),
+    radial-gradient(circle closest-side, var(--primary-color) 98%, transparent 100%);
+  background-size: 4px 4px, 6px 6px, 8px 8px, 6px 6px, 4px 4px;
+  background-position: 2px center, 15px center, 28px center, 43px center, 58px center;
 }
 
 /* Content Improvements */
