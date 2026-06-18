@@ -348,7 +348,7 @@
           </figure>
           <div class="content has-text-justified">
             <p>
-              We provide well tuned multi-agent RL baselines &mdash; <strong>IPPO</strong>, <strong>MAPPO</strong>, and <strong>MASAC</strong>, in feed-forward and recurrent variants &mdash; co-trained on every task. All baselines were tuned across <strong>168 hyperparameter combinations</strong> per algorithm&ndash;task pair (16 seeds, 64 evaluation episodes), the feed-forward IPPO and MAPPO variants consistently come out on top.
+              We provide well tuned multi-agent RL baselines: <strong>IPPO</strong>, <strong>MAPPO</strong>, and <strong>MASAC</strong>, in feed-forward and recurrent variants &mdash; co-trained on every task. All baselines were tuned across <strong>168 hyperparameter combinations</strong> per algorithm&ndash;task pair (16 seeds, 64 evaluation episodes), the feed-forward IPPO and MAPPO variants consistently come out on top.
             </p>
             <!-- <p>
               Despite the partial observability of the environments, recurrent architectures offer no benefit &mdash; and actively hurt IPPO. These baselines are released alongside the code as strong reference implementations for AHT research.
@@ -382,7 +382,7 @@
           </figure>
           <div class="content has-text-justified">
             <p>
-              The same loop is then used to study a harder question: <em>can a robot trained with a handful of partners cooperate with humans it has never seen?</em> We pre-train a diverse population of <strong>630 humanoid partners per task</strong> with MARL, varying them along two axes &mdash; <strong>610 preference combinations</strong> and <strong>7 disability combinations</strong> (which joints are usable). The population is then split into a small <strong>training set of 5 partners</strong> and a held-out <strong>test set of 625 partners</strong> with novel preference combinations.
+              The same loop is then used to study a harder question: <em>can a robot trained with a handful of partners cooperate with humans it has never seen?</em> We pre-train a diverse population of <strong>630 humanoid partners per task</strong> with MARL, varying them along two axes; <strong>610 preference combinations</strong> and <strong>7 disability combinations</strong> (which joints are usable). The population is then split into a small <strong>training set of 5 partners</strong> and a held-out <strong>test set of 625 partners</strong> with novel preference combinations.
             </p>
             <p>
               A robot policy is trained against only the training partners and evaluated against the held-out test partners. All reactive, pre-trained humanoid policies are released on <strong>Hugging Face</strong>, so AHT researchers can drop them into their own pipelines without paying the cost of pre-training a partner population from scratch.
