@@ -199,20 +199,46 @@
   </section>
 
 
-  <!-- Teaser video -->
+  <!-- Teaser: five assistive tasks -->
   <section class="hero teaser">
-    <div class="container is-max-desktop">
-      <div class="hero-body">
-        <video poster="" id="teaser" autoplay muted loop playsinline preload="metadata">
-          <source src="static/videos/banner_video.mp4" type="video/mp4">
-        </video>
-        <h2 class="subtitle has-text-centered">
-          A robot and a humanoid co-trained with MARL on the <em>Scratch</em> task &mdash; one of five GPU-accelerated assistive scenarios.
-        </h2>
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item item-video1">
+            <video poster="" id="video1" muted loop playsinline preload="metadata">
+              <source src="static/videos/task_scratch.mp4" type="video/mp4">
+            </video>
+            <h2 class="subtitle has-text-centered"><strong>Scratch</strong> &mdash; the robot reaches a target itch location on the humanoid.</h2>
+          </div>
+          <div class="item item-video2">
+            <video poster="" id="video2" muted loop playsinline preload="metadata">
+              <source src="static/videos/task_tooth_brushing.mp4" type="video/mp4">
+            </video>
+            <h2 class="subtitle has-text-centered"><strong>Tooth Brushing</strong> &mdash; coordinated contact while the humanoid holds still and opens the mouth.</h2>
+          </div>
+          <div class="item item-video3">
+            <video poster="" id="video3" muted loop playsinline preload="metadata">
+              <source src="static/videos/task_feeding.mp4" type="video/mp4">
+            </video>
+            <h2 class="subtitle has-text-centered"><strong>Feeding</strong> &mdash; the robot delivers food to the humanoid's mouth.</h2>
+          </div>
+          <div class="item item-video4">
+            <video poster="" id="video4" muted loop playsinline preload="metadata">
+              <source src="static/videos/task_bed_bathing.mp4" type="video/mp4">
+            </video>
+            <h2 class="subtitle has-text-centered"><strong>Bed Bath</strong> &mdash; the robot wipes along the humanoid's arm while it lies in bed.</h2>
+          </div>
+          <div class="item item-video5">
+            <video poster="" id="video5" muted loop playsinline preload="metadata">
+              <source src="static/videos/task_arm_assist.mp4" type="video/mp4">
+            </video>
+            <h2 class="subtitle has-text-centered"><strong>Arm Assist</strong> &mdash; the robot helps the humanoid lift its arm back onto the bed.</h2>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-  <!-- End teaser video -->
+  <!-- End teaser -->
 
   <!-- Paper abstract -->
   <section class="section hero is-light">
@@ -263,49 +289,6 @@
     </div>
   </section>
   <!-- End Key Results -->
-
-
-  <!-- Tasks video carousel -->
-  <section class="hero is-small is-light">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <h2 class="title is-3 has-text-centered">Five Assistive Tasks</h2>
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="item item-video1">
-            <video poster="" id="video1" muted loop playsinline preload="metadata">
-              <source src="static/videos/task_scratch.mp4" type="video/mp4">
-            </video>
-            <h2 class="subtitle has-text-centered"><strong>Scratch</strong> &mdash; the robot reaches a target itch location on the humanoid.</h2>
-          </div>
-          <div class="item item-video2">
-            <video poster="" id="video2" muted loop playsinline preload="metadata">
-              <source src="static/videos/task_tooth_brushing.mp4" type="video/mp4">
-            </video>
-            <h2 class="subtitle has-text-centered"><strong>Tooth Brushing</strong> &mdash; coordinated contact while the humanoid holds still and opens the mouth.</h2>
-          </div>
-          <div class="item item-video3">
-            <video poster="" id="video3" muted loop playsinline preload="metadata">
-              <source src="static/videos/task_feeding.mp4" type="video/mp4">
-            </video>
-            <h2 class="subtitle has-text-centered"><strong>Feeding</strong> &mdash; the robot delivers food to the humanoid's mouth.</h2>
-          </div>
-          <div class="item item-video4">
-            <video poster="" id="video4" muted loop playsinline preload="metadata">
-              <source src="static/videos/task_bed_bathing.mp4" type="video/mp4">
-            </video>
-            <h2 class="subtitle has-text-centered"><strong>Bed Bath</strong> &mdash; the robot wipes along the humanoid's arm while it lies in bed.</h2>
-          </div>
-          <div class="item item-video5">
-            <video poster="" id="video5" muted loop playsinline preload="metadata">
-              <source src="static/videos/task_arm_assist.mp4" type="video/mp4">
-            </video>
-            <h2 class="subtitle has-text-centered"><strong>Arm Assist</strong> &mdash; the robot helps the humanoid lift lift it's arm back onto the bed.</h2>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End video carousel -->
 
 
   <!-- Tuned MARL Baselines -->
