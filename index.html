@@ -291,6 +291,32 @@
   <!-- End Key Results -->
 
 
+  <!-- Interactive policy rollout -->
+  <section class="section hero is-light" id="explore">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Explore a Trained Policy</h2>
+          <p class="subtitle is-6 has-text-centered" style="color: var(--text-secondary); margin-bottom: 2rem;">
+            IPPO co-policy on the <em>Bed Bath</em> task. Drag to orbit, scroll to zoom, scrub the timeline to inspect any moment of the rollout.
+          </p>
+          <div class="brax-embed">
+            <iframe src="static/renders/bedbathing_ippo.html"
+                    title="Interactive 3D rollout of an IPPO co-policy on the Bed Bath task"
+                    loading="lazy"
+                    allow="fullscreen">
+            </iframe>
+          </div>
+          <p class="has-text-centered" style="margin-top: 0.75rem; font-size: 0.9rem; color: var(--text-secondary);">
+            Slow to load? <a href="static/renders/bedbathing_ippo.html" target="_blank">Open in a new tab</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End interactive policy rollout -->
+
+
   <!-- Tuned MARL Baselines -->
   <section class="section" id="baselines">
     <div class="container is-max-desktop">

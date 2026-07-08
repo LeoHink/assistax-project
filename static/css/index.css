@@ -363,6 +363,24 @@ body {
   box-shadow: var(--shadow-md);
 }
 
+/* Interactive Brax viewer embed */
+.brax-embed {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: var(--background-primary);
+}
+
+.brax-embed iframe {
+  display: block;
+  width: 100%;
+  height: 480px;
+  border: 0;
+}
+
 /* MARL baseline grid (legend on top, 3x2 per-task panels below) */
 .baseline-grid {
   text-align: center;
