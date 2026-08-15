@@ -176,7 +176,7 @@
                 </span>
 
                 <span class="link-block">
-                  <a href="https://huggingface.co/assistive-autonomy" target="_blank"
+                  <a href="https://huggingface.co/datasets/leohink/assistax-zoo" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                     <span class="icon"><i class="fas fa-robot"></i></span>
                     <span>Models</span>
@@ -208,31 +208,31 @@
             <video poster="" id="video1" muted loop playsinline preload="metadata">
               <source src="static/videos/task_scratch.mp4" type="video/mp4">
             </video>
-            <h2 class="subtitle has-text-centered"><strong>Scratch</strong> &mdash; the robot reaches a target itch location on the humanoid.</h2>
+            <h2 class="subtitle has-text-centered"><strong>Scratch</strong>: the robot reaches a target itch location on the humanoid.</h2>
           </div>
           <div class="item item-video2">
             <video poster="" id="video2" muted loop playsinline preload="metadata">
               <source src="static/videos/task_tooth_brushing.mp4" type="video/mp4">
             </video>
-            <h2 class="subtitle has-text-centered"><strong>Tooth Brushing</strong> &mdash; coordinated contact while the humanoid holds still and opens the mouth.</h2>
+            <h2 class="subtitle has-text-centered"><strong>Tooth Brushing</strong>: coordinated contact while the humanoid holds still and opens the mouth.</h2>
           </div>
           <div class="item item-video3">
             <video poster="" id="video3" muted loop playsinline preload="metadata">
               <source src="static/videos/task_feeding.mp4" type="video/mp4">
             </video>
-            <h2 class="subtitle has-text-centered"><strong>Feeding</strong> &mdash; the robot delivers food to the humanoid's mouth.</h2>
+            <h2 class="subtitle has-text-centered"><strong>Feeding</strong>: the robot delivers food to the humanoid's mouth.</h2>
           </div>
           <div class="item item-video4">
             <video poster="" id="video4" muted loop playsinline preload="metadata">
               <source src="static/videos/task_bed_bathing.mp4" type="video/mp4">
             </video>
-            <h2 class="subtitle has-text-centered"><strong>Bed Bath</strong> &mdash; the robot wipes along the humanoid's arm while it lies in bed.</h2>
+            <h2 class="subtitle has-text-centered"><strong>Bed Bath</strong>: the robot wipes along the humanoid's arm while it lies in bed.</h2>
           </div>
           <div class="item item-video5">
             <video poster="" id="video5" muted loop playsinline preload="metadata">
               <source src="static/videos/task_arm_assist.mp4" type="video/mp4">
             </video>
-            <h2 class="subtitle has-text-centered"><strong>Arm Assist</strong> &mdash; the robot helps the humanoid lift its arm back onto the bed.</h2>
+            <h2 class="subtitle has-text-centered"><strong>Arm Assist</strong>: the robot helps the humanoid lift its arm back onto the bed.</h2>
           </div>
         </div>
       </div>
@@ -248,7 +248,7 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Real-world assistive tasks &mdash; home assistance, caretaking, daily-living support &mdash; are inherently multi-agent, yet most existing reinforcement learning (RL) and robot learning simulators consider single-agent problems. This gap is compounded by two further limitations: common RL environments are too simple to capture the complexity of real robotics domains, while most robotics simulations have throughput too low for RL training. As a result, environments that combine robotics fidelity, training efficiency, <em>and</em> multi-agent support remain rare. <strong>Assistax</strong> closes this gap with a high-throughput, GPU-accelerated suite of assistive robotics tasks built on JAX and MuJoCo&nbsp;MJX, and pairs each robot with an active humanoid partner that can be co-trained via multi-agent RL (MARL).
+              Real-world assistive tasks: home assistance, caretaking, daily-living support, are inherently multi-agent, yet most existing reinforcement learning (RL) and robot learning simulators consider single-agent problems. This gap is compounded by two further limitations: common RL environments are too simple to capture the complexity of real robotics domains, while most robotics simulations have throughput too low for RL training. As a result, environments that combine robotics fidelity, training efficiency, <em>and</em> multi-agent support remain rare. <strong>Assistax</strong> closes this gap with a high-throughput, GPU-accelerated suite of assistive robotics tasks built on JAX and MuJoCo&nbsp;MJX, and pairs each robot with an active humanoid partner that can be co-trained via multi-agent RL (MARL).
             </p>
             <p>
               On top of the MARL benchmark we formulate assistive tasks as an <strong>Ad-Hoc Teamwork (AHT)</strong> problem: the robot must generalise to unseen humans with varying disabilities and preferences. We provide tuned MARL baselines, an AHT pipeline with a diverse population of pre-trained humanoid partners (released on Hugging Face), and an evaluation protocol that reveals a clear coordination gap when current RL algorithms meet unseen partner agents.
