@@ -99,3 +99,20 @@ speed while every frame shows the clip's first frame.
 - Motion rates are deliberately half what a first pass used; the original read as
   hurried. `CFG.assembly.travel`, `CFG.word.stagger` and the `CFG.outro` block are
   where you dial pace.
+
+- Beat order matters as much as the rates. `CFG.scrim.start` must land *after*
+  assembly finishes (`assembly.stagger x 4 + assembly.travel`), or the mosaic
+  starts dimming before the last tile arrives and is never seen clean — which is
+  what the first cut did.
+
+Rough beat map, for orientation:
+
+| t (s)       | beat                                              |
+| ----------- | ------------------------------------------------- |
+| 0.0 – 2.6   | tiles fly in from the four edges                  |
+| 2.6 – 3.8   | clean, undimmed mosaic — all five tasks readable  |
+| 3.8 – 5.0   | scrim rises                                       |
+| 4.7 – 7.4   | "Assistax" spells out                             |
+| 7.2 – 8.8   | accent rule draws, subtitle appears               |
+| 8.8 – 9.7   | hold                                              |
+| 9.7 – 12.0  | reverse outro, landing exactly on frame 0         |

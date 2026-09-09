@@ -146,17 +146,21 @@ const CFG = {
   // the piece still lands on exactly 10.0s with ~1.7s of hold.
   assembly: { start: 0.00, stagger: 0.20, travel: 1.80 },
   settle:   { start: 2.30, dur: 1.20, fromScale: 1.06, toScale: 1.00 },
-  scrim:    { start: 2.30, dur: 1.50 },
+  // The scrim used to start at 2.30 -- before the last tile landed at 2.60 -- so
+  // the mosaic was never seen both complete and undimmed. It now waits, giving
+  // ~1.2s of clean tiles and 2.1s of text-free mosaic after assembly finishes.
+  scrim:    { start: 3.80, dur: 1.20 },
 
   word: {
     text: 'Assistax',
-    start: 3.40, stagger: 0.36, letterDur: 0.84,
+    // ~20% quicker than the first pass (was 0.36 / 0.84): 2.66s to spell, not 3.36s
+    start: 4.70, stagger: 0.28, letterDur: 0.70,
     trackFrom: 0.060, trackTo: 0.010,   // em
     riseFrom: 14, blurFrom: 8, scaleFrom: 0.94,
   },
 
   sub: {
-    start: 6.90, dur: 1.40,
+    start: 7.50, dur: 1.25,
     riseFrom: 12, blurFrom: 6,
     lines: [
       'A Multi-Agent Hardware-Accelerated',
@@ -164,20 +168,20 @@ const CFG = {
     ],
   },
 
-  rule:  { start: 6.60, dur: 1.10 },
-  drift: { start: 3.50, end: 9.40, toScale: 1.025 },
+  rule:  { start: 7.20, dur: 0.95 },
+  drift: { start: 3.50, end: 9.70, toScale: 1.025 },
 
   // Outro: the intro played backwards at roughly 3x, so the last frame lands on
   // exactly the opening state and the post loops without a seam. Text clears
   // first, then the tiles retreat to the same edges they arrived from and the
   // strip pulls back out to its opening scale.
   outro: {
-    sub:   { start:  9.40, dur: 0.50 },
-    rule:  { start:  9.45, dur: 0.40 },
-    word:  { start:  9.55, stagger: 0.12, letterDur: 0.36 },
-    scrim: { start: 10.40, dur: 0.70 },
-    tiles: { start: 10.55, stagger: 0.13, travel: 0.88 },
-    scale: { start: 10.55, dur: 1.45 },
+    sub:   { start:  9.70, dur: 0.45 },
+    rule:  { start:  9.75, dur: 0.35 },
+    word:  { start:  9.85, stagger: 0.10, letterDur: 0.32 },
+    scrim: { start: 10.45, dur: 0.62 },
+    tiles: { start: 10.60, stagger: 0.11, travel: 0.80 },
+    scale: { start: 10.60, dur: 1.30 },
   },
 };
 
