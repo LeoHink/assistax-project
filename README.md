@@ -9,14 +9,17 @@ python3 -m http.server 8000
 # then visit http://localhost:8000
 ```
 
-## Open placeholders to fill before deploy
+## Open placeholders
 
-- `arxiv.org/abs/XXXX.XXXXX` — replace with the real arXiv ID in `index.html` and in the JSON-LD block.
-- `https://YOUR_DOMAIN.com/...` — replace with the deployment URL in the Open Graph / Twitter / JSON-LD tags.
-- Author `href="#"` links — point each author span to their personal page.
 - `https://huggingface.co/assistive-autonomy` — confirm the Hugging Face org/collection URL.
 - `static/images/favicon.ico` — replace with the Assistax favicon.
-- `static/images/social_preview.png` — add a 1200×630 social preview image.
+
+## Search indexing
+
+- `index.html` has a canonical URL and Open Graph / Twitter / JSON-LD tags pointing at `https://leohinckeldey.dev/assistax-project/`.
+- `static/images/social_preview.jpg` is the 1200×630 link-preview image (cropped from `banner/stills/t8_80.png`).
+- `sitemap.xml` lists the page. Submit `https://leohinckeldey.dev/assistax-project/sitemap.xml` in Google Search Console under the `leohinckeldey.dev` property. Bump `<lastmod>` after substantial edits.
+- `docs.html` is deliberately `noindex` while it is a stub.
 
 ## Editing content
 
