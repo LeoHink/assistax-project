@@ -163,14 +163,41 @@ body {
 }
 
 .publication-awards {
-    color: #ef4444;
-    width: fit-content;
-    font-weight: 700;
-    background: linear-gradient(135deg, #fef2f2, #fee2e2);
-    padding: 0.5rem 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    max-width: 100%;
+    margin: 0 auto 1.5rem;
+    padding: 0.75rem 1.25rem;
+    color: #78350f;
+    text-align: left;
+    background: linear-gradient(135deg, #fffbeb, #fef3c7);
+    border: 1px solid #fcd34d;
     border-radius: var(--border-radius);
-    border-left: 4px solid #ef4444;
-    margin-top: 1rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.publication-awards .award-icon {
+    flex-shrink: 0;
+    font-size: 1.5rem;
+    color: #d97706;
+}
+
+.publication-awards .award-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.35;
+}
+
+.publication-awards .award-text strong {
+    color: #78350f;
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.publication-awards .award-text span {
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
 .publication-authors a {
